@@ -1,5 +1,5 @@
 module LOG #(parameter M=4,
-                       N=10) //1.M.N (1 bit de sinal)
+                       N=10) 
             (output logic [M+N: 0] logNumber,
              output logic iReady, oValid, 
              input logic [M+N: 0] number, 
@@ -7,8 +7,8 @@ module LOG #(parameter M=4,
              );
     
     logic signed [M+N: 0] floorNumber, index;
-    logic [M+M+N+N:0] x, a, b; //a and b will be used for Peasant Multiplication
-  logic [5:0] count;
+    logic [M+M+N+N:0] x, a, b; 
+    logic [5:0] count;
     enum logic [2:0] {INIT,WAIT_AND_PREPARE,SCALE,PEASANT_PREP,PEASANT,CALC,SEND} state;
     
     always_ff @(posedge clock)
@@ -31,7 +31,7 @@ module LOG #(parameter M=4,
                 WAIT_AND_PREPARE: begin
                     if(iValid) begin
                         iReady <= 0;
-                        x <= number; //Soon will be scaled
+                        x <= number; 
                         state <= SCALE;
                     end
                     else begin
@@ -49,7 +49,7 @@ module LOG #(parameter M=4,
                         index <= index-1;
                     end
                     else begin
-                        index <= index<<<N; //Let index in fixed point 1.M.N format
+                        index <= index<<<N; 
                         state <= PEASANT_PREP;                     
                     end
                 end
@@ -68,7 +68,7 @@ module LOG #(parameter M=4,
                         b <= b << 1;
                     end
                     else begin
-                        x <= x>>N; //X is defined with double precision, requiring this shift
+                        x <= x>>N; 
                         state <= CALC;
                     end
                 end
