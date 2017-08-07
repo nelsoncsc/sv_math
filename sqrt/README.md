@@ -1,1 +1,1 @@
-You can find an explanation about this algorithm on http://www.sistenix.com/sqrt.html
+You can find an explanation about this algorithm on https://sistenix.com/sqrt.html
