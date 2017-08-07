@@ -1,1 +1,1 @@
-You can find an explanation about this algorithm on http://www.sistenix.com/logarithm.html
+You can find an explanation about this algorithm on https://sistenix.com/logarithm.html
