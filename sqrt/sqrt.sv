@@ -6,7 +6,7 @@ module sqrt #(parameter NBITS = 8, PRECISION = 10)
     
     enum logic [1:0] {INIT, SET, CALC, SEND} state; 
     logic [NBITS+NBITS-1:0] A_aux, Y, P;
-    logic [4:0] m;
+    logic [$clog2(NBITS):0] m;
                            
     always_ff @(posedge clock)begin
         if(reset)begin
